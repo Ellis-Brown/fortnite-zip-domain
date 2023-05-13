@@ -1,30 +1,20 @@
-import { useState } from 'react';
+import React from 'react';
+import { useEffect } from "react"
 
-function Alert() {
-  const [isOpen, setIsOpen] = useState(true);
+export default function AlertRepeatForever() {
+  // on page open, alert ("Bing Bong")
+  // please write the code
 
-  const handleAlertClose = () => {
-    setIsOpen(false);
-  };
-
-  const handleAlertOpen = () => {
-    setIsOpen(true);
-  };
-
+  const alertRepeatForever = () => {
+    alert("Get Bing Bonged");
+    alertRepeatForever();
+  }
+  useEffect(() => {
+    alertRepeatForever()
+  }, [])
   return (
     <div>
-      {isOpen && (
-        <div className="alert">
-          <p>Get Bing Bonged</p>
-          <button onClick={handleAlertClose}>Close</button>
-        </div>
-      )}
-      {!isOpen && (
-        <button onClick={handleAlertOpen}>Open Alert</button>
-      )}
+      Hi world!
     </div>
-  );
+  )
 }
-
-export default Alert;
-
